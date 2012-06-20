@@ -1,0 +1,95 @@
+--------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  F:\EmergencySurgeryinElderly\NEWEGS\Logforfigure1regressionnonparsimonious.log
+  log type:  text
+ opened on:  12 Jun 2012, 08:51:04
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutepulm chroniccardi
+> ac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected chronicsteroid i.preopalbumincat 
+> bleedingdisorder i.preopsepsis totalwrvuquartile residentpresent i.incisionalwound highasa optimequartile anesthes
+> iaonlytimequartile preophospitallos majorcomp i.diagnosis numage10 if numage10 >= 3 & numage >= 65
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+i.diagnosis       _Idiagnosis_0-7     (naturally coded; _Idiagnosis_0 omitted)
+
+Logistic regression                               Number of obs   =      20419
+                                                  LR chi2(44)     =    4612.76
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -4294.2766                       Pseudo R2       =     0.3494
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .8958454   .0538826    -1.83   0.067     .7962247     1.00793
+_Ibmiclass_1 |   1.264279   .1098323     2.70   0.007     1.066341    1.498959
+_Ibmiclass_2 |   .7253264   .0534829    -4.36   0.000     .6277244    .8381042
+_Ibmiclass_3 |   .7230292    .067183    -3.49   0.000     .6026473     .867458
+_Ibmiclass_4 |   .7363869   .0786061    -2.87   0.004     .5973708    .9077538
+_Idiabetes_1 |    .920692   .0832579    -0.91   0.361     .7711528    1.099229
+_Idiabetes_2 |    .921695   .0948389    -0.79   0.428     .7533588    1.127646
+  alcoholuse |   .7774281   .1377756    -1.42   0.155     .5493012    1.100297
+chronicpul~y |   1.278026   .0776005     4.04   0.000     1.134633     1.43954
+decreasedf~n |   1.931337   .1216445    10.45   0.000     1.707047    2.185096
+acutepulmo~y |   1.312052   .1169483     3.05   0.002     1.101743    1.562507
+chroniccar~c |   1.161018   .0811728     2.14   0.033     1.012341    1.331529
+acutecardiac |   .9478422   .1150182    -0.44   0.659     .7472139     1.20234
+hypertension |   1.063757   .0739189     0.89   0.374     .9283112    1.218964
+         pvd |   1.345951    .154509     2.59   0.010      1.07477    1.685557
+       renal |   1.468707     .13299     4.25   0.000     1.229871    1.753923
+acutecogni~e |   1.243224    .113488     2.38   0.017     1.039555    1.486797
+cerebrovas~r |   .9571861   .0717224    -0.58   0.559     .8264478    1.108606
+preopinfec~d |   1.034454   .1167151     0.30   0.764     .8292243    1.290477
+chronicste~s |   1.351075   .1258464     3.23   0.001     1.125626     1.62168
+_Ipreopalb~1 |   1.328616   .0915847     4.12   0.000     1.160711     1.52081
+_Ipreopalb~2 |   1.029785   .0902469     0.33   0.738     .8672612    1.222765
+bleedingdi~r |   1.045119   .0716946     0.64   0.520     .9136373    1.195522
+_Ipreopsep~1 |   1.191839   .0874609     2.39   0.017     1.032176    1.376199
+_Ipreopsep~2 |   1.506386    .132651     4.65   0.000     1.267594    1.790162
+_Ipreopsep~3 |   1.978905   .1963317     6.88   0.000     1.629203    2.403668
+totalwrvuq~e |   .9544016   .0493139    -0.90   0.366      .862481    1.056119
+residentpr~t |   1.009487   .0606217     0.16   0.875     .8973961    1.135578
+_Iincision~1 |   1.062185   .1171245     0.55   0.584     .8557371    1.318439
+_Iincision~2 |      1.239   .1444944     1.84   0.066     .9858318    1.557184
+_Iincision~3 |   1.368421   .1625827     2.64   0.008     1.084146    1.727234
+     highasa |   2.145226   .1398348    11.71   0.000      1.88794    2.437575
+optimequar~e |     .91079   .0288797    -2.95   0.003     .8559098    .9691892
+anesthesi~le |   1.041145   .0306161     1.37   0.170     .9828346    1.102914
+preophospi~s |   1.004692   .0043591     1.08   0.281     .9961844    1.013272
+majorcompl~n |   5.016409   .3243132    24.95   0.000     4.419391     5.69408
+_Idiagnosi~1 |   2.786788   .4811496     5.94   0.000     1.986739    3.909013
+_Idiagnosi~2 |   1.516541   .2975517     2.12   0.034     1.032392    2.227735
+_Idiagnosi~3 |   2.576997   .4538517     5.37   0.000      1.82475    3.639356
+_Idiagnosi~4 |   6.797627   1.160451    11.23   0.000     4.864579    9.498815
+_Idiagnosi~5 |   2.677439    .501417     5.26   0.000     1.854859     3.86481
+_Idiagnosi~6 |   4.763315   .8352243     8.90   0.000     3.377966    6.716815
+_Idiagnosi~7 |   3.055219   .5552426     6.15   0.000     2.139679    4.362507
+numage10y~39 |   1.723626    .062178    15.09   0.000     1.605968    1.849904
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =    20419
+area under ROC curve   =   0.9071
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =     20419
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =       122.62
+                  Prob > chi2 =         0.0000
+
+. log close
+      name:  <unnamed>
+       log:  F:\EmergencySurgeryinElderly\NEWEGS\Logforfigure1regressionnonparsimonious.log
+  log type:  text
+ closed on:  12 Jun 2012, 08:57:27
+--------------------------------------------------------------------------------------------------------------------

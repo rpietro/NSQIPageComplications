@@ -1,0 +1,1820 @@
+--------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  F:\EmergencySurgeryinElderly\NEWEGS\Logfortable1regressionsnonparsimonious.log
+  log type:  text
+ opened on:  11 Jun 2012, 16:01:36
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 0
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =      48547
+                                                  LR chi2(36)     =     515.43
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -379.42691                       Pseudo R2       =     0.4045
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .6156786   .1563631    -1.91   0.056     .3742618    1.012821
+_Ibmiclass_1 |   1.388288   .6726017     0.68   0.498     .5371395    3.588162
+_Ibmiclass_2 |    .869855   .2709589    -0.45   0.654     .4723876    1.601752
+_Ibmiclass_3 |   .6598308    .250807    -1.09   0.274      .313245    1.389892
+_Ibmiclass_4 |   1.195414   .4541832     0.47   0.639     .5676939    2.517225
+_Idiabetes_1 |   .9142764   .3602119    -0.23   0.820     .4223925    1.978968
+_Idiabetes_2 |   1.098491   .4379972     0.24   0.814     .5028054    2.399899
+  alcoholuse |   1.007969    .658889     0.01   0.990     .2799201    3.629614
+chronicpul~y |   1.510404   .3810868     1.63   0.102     .9211453    2.476612
+decreasedf~n |   2.638475    .802659     3.19   0.001      1.45347    4.789606
+acutepulmo~y |   .4554533   .3066015    -1.17   0.243     .1217399    1.703941
+chroniccar~c |   1.226709   .3801589     0.66   0.510     .6682715    2.251802
+acutecardiac |   2.664147   1.346106     1.94   0.052      .989633    7.172032
+hypertension |   1.102419   .3302491     0.33   0.745     .6128503    1.983075
+         pvd |   1.605225   .8075482     0.94   0.347     .5988498    4.302828
+       renal |   1.999577   .8600355     1.61   0.107     .8606547    4.645659
+acutecogni~e |   .7656639   .3935556    -0.52   0.603     .2795862    2.096817
+cerebrovas~r |   .7010777   .2686127    -0.93   0.354     .3308527    1.485586
+preopinfec~d |   2.741855   1.546769     1.79   0.074     .9075156    8.283897
+chronicste~s |   1.104072    .594232     0.18   0.854     .3844725    3.170515
+_Ipreopalb~1 |   1.400262    .422523     1.12   0.265     .7751089    2.529622
+_Ipreopalb~2 |   .6752575   .2184732    -1.21   0.225     .3581552    1.273115
+bleedingdi~r |   1.377029   .4092323     1.08   0.282     .7690925    2.465513
+_Ipreopsep~1 |    1.13713   .3580368     0.41   0.683     .6134804    2.107752
+_Ipreopsep~2 |   1.797381   .5996976     1.76   0.079     .9346223    3.456561
+_Ipreopsep~3 |   4.448924   2.120307     3.13   0.002     1.748162    11.32213
+totalwrvuq~e |    1.12842   .1343106     1.02   0.310     .8936264    1.424903
+residentpr~t |   1.120413   .2847462     0.45   0.655     .6808486    1.843767
+_Iincision~1 |   21488.98   1.15e+07     0.02   0.985            0           .
+_Iincision~2 |   15359.47    8210886     0.02   0.986            0           .
+_Iincision~3 |   29426.73   1.57e+07     0.02   0.985            0           .
+     highasa |   4.336632   1.257737     5.06   0.000     2.456302    7.656379
+optimequar~e |   1.279636   .1615497     1.95   0.051     .9991376    1.638883
+anesthesi~le |   1.399871   .1705719     2.76   0.006      1.10248    1.777483
+preophospi~s |    .945673   .0725902    -0.73   0.467     .8135841    1.099207
+numage10y~39 |   2.143672   .1954311     8.36   0.000     1.792905    2.563064
+------------------------------------------------------------------------------
+Note: 42 failures and 0 successes completely determined.
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =    48547
+area under ROC curve   =   0.9608
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =     48547
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        10.96
+                  Prob > chi2 =         0.2038
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 0
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =      48547
+                                                  LR chi2(36)     =    2676.01
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -7049.2787                       Pseudo R2       =     0.1595
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .8288319   .0417263    -3.73   0.000     .7509551    .9147848
+_Ibmiclass_1 |   .9662017   .1139413    -0.29   0.771     .7668107     1.21744
+_Ibmiclass_2 |   .9830556   .0619409    -0.27   0.786     .8688506    1.112272
+_Ibmiclass_3 |   1.009007   .0735586     0.12   0.902     .8746613    1.163988
+_Ibmiclass_4 |   1.155676     .09183     1.82   0.069     .9890077    1.350432
+_Idiabetes_1 |   1.047395   .1208413     0.40   0.688     .8354194    1.313156
+_Idiabetes_2 |   1.213297   .1507074     1.56   0.120     .9511235    1.547739
+  alcoholuse |    1.05538    .142254     0.40   0.689     .8103564    1.374491
+chronicpul~y |   1.326133    .070954     5.28   0.000     1.194109    1.472754
+decreasedf~n |   1.586167   .1789008     4.09   0.000      1.27158    1.978584
+acutepulmo~y |    2.34773   .6706692     2.99   0.003     1.341183    4.109684
+chroniccar~c |   1.217742    .137764     1.74   0.082     .9755692     1.52003
+acutecardiac |   1.241756   .3316804     0.81   0.418     .7356567    2.096029
+hypertension |   1.037918   .0709849     0.54   0.586     .9077118    1.186802
+         pvd |   1.045873   .2779991     0.17   0.866     .6211902    1.760894
+       renal |   1.199885   .2551838     0.86   0.392      .790882    1.820404
+acutecogni~e |   1.258827   .3854971     0.75   0.452     .6907142    2.294214
+cerebrovas~r |   1.331381   .1861218     2.05   0.041     1.012297    1.751043
+preopinfec~d |   1.814472   .5137806     2.10   0.035     1.041661    3.160632
+chronicste~s |   .6599369   .1615951    -1.70   0.090     .4083883    1.066428
+_Ipreopalb~1 |   1.509215   .1258626     4.94   0.000     1.281635    1.777207
+_Ipreopalb~2 |    .944172   .0497918    -1.09   0.276      .851456    1.046984
+bleedingdi~r |   1.237015   .1456582     1.81   0.071     .9820789    1.558131
+_Ipreopsep~1 |   1.708884   .0933957     9.80   0.000     1.535295      1.9021
+_Ipreopsep~2 |   1.901702   .1390797     8.79   0.000     1.647747    2.194798
+_Ipreopsep~3 |   4.103747   .9767935     5.93   0.000     2.573792    6.543161
+totalwrvuq~e |   1.118993   .0270882     4.64   0.000      1.06714    1.173364
+residentpr~t |   .9607689   .0498881    -0.77   0.441      .867801    1.063696
+_Iincision~1 |   .2641223   .1362526    -2.58   0.010      .096094     .725962
+_Iincision~2 |   .3146387    .161767    -2.25   0.025     .1148627    .8618768
+_Iincision~3 |   .9990693   .5125861    -0.00   0.999     .3654896    2.730965
+     highasa |   2.227373   .2798674     6.37   0.000     1.741167     2.84935
+optimequar~e |   1.371412   .0350121    12.37   0.000     1.304478     1.44178
+anesthesi~le |   1.077773    .024649     3.27   0.001     1.030529    1.127183
+preophospi~s |   1.010177   .0033897     3.02   0.003     1.003555    1.016842
+numage10y~39 |   1.104044   .0223496     4.89   0.000     1.061097    1.148729
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for majorcomplication
+
+number of observations =    48547
+area under ROC curve   =   0.8027
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =     48547
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        48.09
+                  Prob > chi2 =         0.0000
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 0 & majorcomplication == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2016
+                                                  LR chi2(36)     =     203.40
+                                                  Prob > chi2     =     0.0000
+Log likelihood =   -218.739                       Pseudo R2       =     0.3174
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .7596504   .2212639    -0.94   0.345     .4292237    1.344448
+_Ibmiclass_1 |   1.491314   .9173352     0.65   0.516     .4466621    4.979195
+_Ibmiclass_2 |   1.010128   .3829604     0.03   0.979     .4804721    2.123658
+_Ibmiclass_3 |   .7301722   .3151483    -0.73   0.466     .3133572    1.701417
+_Ibmiclass_4 |   1.336971   .5815285     0.67   0.504     .5700114    3.135886
+_Idiabetes_1 |   .9111538   .3979975    -0.21   0.831      .387063    2.144874
+_Idiabetes_2 |   1.245339   .5642951     0.48   0.628     .5123732    3.026836
+  alcoholuse |   .8862129   .7650431    -0.14   0.889     .1631997    4.812346
+chronicpul~y |    .975991   .2878061    -0.08   0.934     .5475684    1.739615
+decreasedf~n |   1.930514   .7028749     1.81   0.071     .9457182      3.9408
+acutepulmo~y |   .4039695   .2822807    -1.30   0.195     .1026967    1.589061
+chroniccar~c |   1.108597   .3936301     0.29   0.772     .5527608    2.223362
+acutecardiac |   3.395873    1.97358     2.10   0.035     1.087072    10.60827
+hypertension |   1.326844   .4733439     0.79   0.428     .6594144    2.669814
+         pvd |   1.603447   .9934993     0.76   0.446     .4760449    5.400836
+       renal |   1.989842   1.019055     1.34   0.179      .729279    5.429295
+acutecogni~e |   .4965572   .3228848    -1.08   0.282     .1388283    1.776072
+cerebrovas~r |   .5012657    .210218    -1.65   0.100     .2203413    1.140355
+preopinfec~d |   1.471287   1.057063     0.54   0.591     .3598665    6.015243
+chronicste~s |   2.159904   1.427347     1.17   0.244     .5914636    7.887528
+_Ipreopalb~1 |   1.007272   .3592893     0.02   0.984     .5006419    2.026593
+_Ipreopalb~2 |   .8226943   .2984513    -0.54   0.591     .4040597    1.675064
+bleedingdi~r |   1.223287   .4182287     0.59   0.556     .6259096     2.39081
+_Ipreopsep~1 |   .8160616    .301818    -0.55   0.583     .3952834    1.684757
+_Ipreopsep~2 |   1.187478   .4527162     0.45   0.652      .562486    2.506912
+_Ipreopsep~3 |   1.677995   .9289631     0.93   0.350     .5669608     4.96625
+totalwrvuq~e |   1.046873   .1364294     0.35   0.725     .8108951    1.351523
+residentpr~t |   1.123217   .3290658     0.40   0.692     .6325426    1.994518
+_Iincision~1 |   51697.64   4.07e+07     0.01   0.989            0           .
+_Iincision~2 |   35447.18   2.79e+07     0.01   0.989            0           .
+_Iincision~3 |   38599.98   3.04e+07     0.01   0.989            0           .
+     highasa |   2.819364   .9232745     3.17   0.002     1.483894    5.356726
+optimequar~e |   1.174671   .1740355     1.09   0.277     .8786274    1.570462
+anesthesi~le |   1.275436   .1729802     1.79   0.073     .9777211    1.663805
+preophospi~s |   .9119296   .0784976    -1.07   0.284     .7703554    1.079522
+numage10y~39 |   2.002189    .217671     6.39   0.000     1.617951    2.477677
+------------------------------------------------------------------------------
+Note: 1 failure and 0 successes completely determined.
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     2016
+area under ROC curve   =   0.9077
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2016
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         4.59
+                  Prob > chi2 =         0.7999
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       9647
+                                                  LR chi2(36)     =    1039.21
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -1444.1983                       Pseudo R2       =     0.2646
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .7625676   .0820727    -2.52   0.012     .6175417     .941652
+_Ibmiclass_1 |   1.227122   .1712494     1.47   0.142     .9334675    1.613154
+_Ibmiclass_2 |   .6886507   .0937283    -2.74   0.006     .5274082    .8991892
+_Ibmiclass_3 |    .666249   .1240838    -2.18   0.029     .4624948    .9597681
+_Ibmiclass_4 |   .6726015   .1449246    -1.84   0.066     .4409106    1.026042
+_Idiabetes_1 |   .7264197   .1383138    -1.68   0.093     .5001667     1.05502
+_Idiabetes_2 |   1.120331   .2208683     0.58   0.564     .7612646    1.648758
+  alcoholuse |   .9535606   .2757086    -0.16   0.869     .5410475    1.680588
+chronicpul~y |   1.541744   .1666026     4.01   0.000     1.247471    1.905435
+decreasedf~n |   2.252886   .2550271     7.18   0.000     1.804609    2.812519
+acutepulmo~y |   1.354175   .2391347     1.72   0.086      .957989    1.914208
+chroniccar~c |   1.065784   .1489947     0.46   0.649     .8103502    1.401734
+acutecardiac |   1.121822   .2671514     0.48   0.629     .7034261     1.78908
+hypertension |   1.256113   .1539831     1.86   0.063     .9878303    1.597257
+         pvd |   .8423684   .2040984    -0.71   0.479     .5239182     1.35438
+       renal |   1.449714   .2721062     1.98   0.048     1.003494    2.094353
+acutecogni~e |   2.009496   .3631972     3.86   0.000      1.41007    2.863741
+cerebrovas~r |   .9860881   .1421528    -0.10   0.923      .743375    1.308047
+preopinfec~d |   .9120292   .1991175    -0.42   0.673     .5945268    1.399092
+chronicste~s |   1.222479   .2333373     1.05   0.293     .8409508    1.777101
+_Ipreopalb~1 |   1.450389   .1731928     3.11   0.002     1.147734    1.832853
+_Ipreopalb~2 |   1.010629   .1561153     0.07   0.945     .7466269     1.36798
+bleedingdi~r |   1.431231   .1845297     2.78   0.005     1.111639    1.842705
+_Ipreopsep~1 |   1.266817   .1546332     1.94   0.053     .9972694    1.609219
+_Ipreopsep~2 |   1.800302   .3220768     3.29   0.001     1.267839    2.556388
+_Ipreopsep~3 |   2.867926    .583506     5.18   0.000     1.924789    4.273195
+totalwrvuq~e |    1.00921   .1153477     0.08   0.936     .8066651    1.262611
+residentpr~t |   .8833189   .0964845    -1.14   0.256     .7130848    1.094193
+_Iincision~1 |   1.056833   .1618396     0.36   0.718     .7828099    1.426778
+_Iincision~2 |   1.508452   .2609863     2.38   0.018     1.074632      2.1174
+_Iincision~3 |    1.75341   .3317389     2.97   0.003      1.21015     2.54055
+     highasa |   2.415407   .2753886     7.73   0.000      1.93171    3.020221
+optimequar~e |   1.264907   .0706357     4.21   0.000      1.13377    1.411211
+anesthesi~le |   1.115231   .0587669     2.07   0.038     1.005798     1.23657
+preophospi~s |   1.000038   .0087114     0.00   0.997     .9831085    1.017258
+numage10y~39 |   1.594941    .066058    11.27   0.000     1.470586    1.729813
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     9647
+area under ROC curve   =   0.8791
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      9647
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        12.03
+                  Prob > chi2 =         0.1498
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       9647
+                                                  LR chi2(36)     =    2167.13
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -4092.3403                       Pseudo R2       =     0.2093
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .7730589   .0449346    -4.43   0.000     .6898202    .8663418
+_Ibmiclass_1 |   1.266588   .1054038     2.84   0.005     1.075968    1.490978
+_Ibmiclass_2 |   .8807025   .0638264    -1.75   0.080     .7640836    1.015121
+_Ibmiclass_3 |    .996516      .0936    -0.04   0.970     .8289595    1.197941
+_Ibmiclass_4 |   1.089696   .1151917     0.81   0.416     .8857784    1.340559
+_Idiabetes_1 |   .8745194   .0899353    -1.30   0.192     .7148783     1.06981
+_Idiabetes_2 |   1.253602   .1470927     1.93   0.054      .996054    1.577743
+  alcoholuse |   1.628058   .2300154     3.45   0.001     1.234271    2.147481
+chronicpul~y |    1.41419   .0854882     5.73   0.000     1.256182    1.592074
+decreasedf~n |   1.840701   .1279804     8.78   0.000     1.606205    2.109433
+acutepulmo~y |   2.050642   .3029614     4.86   0.000     1.535088    2.739341
+chroniccar~c |   1.122828   .1002522     1.30   0.194     .9425698     1.33756
+acutecardiac |   1.215293   .2192845     1.08   0.280     .8532812    1.730891
+hypertension |   1.240059    .080765     3.30   0.001      1.09145    1.408903
+         pvd |   1.019271   .1675316     0.12   0.908     .7385543    1.406684
+       renal |   1.247093   .1803843     1.53   0.127     .9392429    1.655846
+acutecogni~e |   1.700632   .2751423     3.28   0.001       1.2385    2.335204
+cerebrovas~r |   1.165508   .1140789     1.56   0.118     .9620559    1.411985
+preopinfec~d |   1.237311   .1906152     1.38   0.167     .9148424    1.673446
+chronicste~s |   1.104828    .133765     0.82   0.410     .8714395    1.400724
+_Ipreopalb~1 |   1.348378   .0911716     4.42   0.000     1.181019    1.539452
+_Ipreopalb~2 |   .8617429   .0654412    -1.96   0.050     .7425694    1.000042
+bleedingdi~r |   1.191266   .1041056     2.00   0.045     1.003741    1.413826
+_Ipreopsep~1 |   1.443495   .0912226     5.81   0.000     1.275331    1.633832
+_Ipreopsep~2 |   2.018067   .2333826     6.07   0.000     1.608782    2.531478
+_Ipreopsep~3 |   2.893695   .5207057     5.90   0.000     2.033683    4.117391
+totalwrvuq~e |   1.243469   .0751047     3.61   0.000     1.104645    1.399738
+residentpr~t |   1.069716   .0652498     1.10   0.269     .9491775    1.205562
+_Iincision~1 |   1.238293   .0955298     2.77   0.006     1.064526    1.440425
+_Iincision~2 |   1.739669   .1629101     5.91   0.000     1.447959    2.090147
+_Iincision~3 |    2.40492   .2606831     8.10   0.000     1.944617     2.97418
+     highasa |   1.896286   .1363175     8.90   0.000     1.647077    2.183201
+optimequar~e |   1.416819   .0440727    11.20   0.000     1.333018    1.505887
+anesthesi~le |   1.210858   .0342622     6.76   0.000     1.145533    1.279907
+preophospi~s |   1.021281   .0085003     2.53   0.011     1.004756    1.038078
+numage10y~39 |   1.167292   .0232458     7.77   0.000     1.122608    1.213753
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for majorcomplication
+
+number of observations =     9647
+area under ROC curve   =   0.8051
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      9647
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        26.24
+                  Prob > chi2 =         0.0010
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 1 & majorcomp == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2197
+                                                  LR chi2(36)     =     286.35
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -924.43124                       Pseudo R2       =     0.1341
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .8762793   .1081254    -1.07   0.284     .6880367    1.116024
+_Ibmiclass_1 |   1.076251   .1752606     0.45   0.652     .7821695    1.480902
+_Ibmiclass_2 |   .6822612   .1072214    -2.43   0.015     .5013941     .928372
+_Ibmiclass_3 |   .5330435   .1176236    -2.85   0.004     .3458859    .8214713
+_Ibmiclass_4 |   .6818149   .1615866    -1.62   0.106     .4284855    1.084918
+_Idiabetes_1 |    .764525   .1674878    -1.23   0.220       .49764    1.174541
+_Idiabetes_2 |   1.040573   .2313191     0.18   0.858     .6730551    1.608772
+  alcoholuse |   .8868945   .2647093    -0.40   0.688     .4941011    1.591945
+chronicpul~y |   1.436372   .1768596     2.94   0.003      1.12839    1.828416
+decreasedf~n |   1.584645   .2070144     3.52   0.000     1.226685    2.047062
+acutepulmo~y |    1.08018   .2047125     0.41   0.684     .7450385    1.566078
+chroniccar~c |   1.123168   .1780654     0.73   0.464     .8231831    1.532473
+acutecardiac |   1.091867   .2854869     0.34   0.737     .6540468    1.822765
+hypertension |   1.082463    .153554     0.56   0.576     .8197192    1.429425
+         pvd |   .8792726   .2349366    -0.48   0.630     .5208197     1.48443
+       renal |   1.327612   .2784538     1.35   0.177     .8801163    2.002639
+acutecogni~e |   1.967674   .3889368     3.42   0.001     1.335679    2.898708
+cerebrovas~r |   1.047647   .1691149     0.29   0.773     .7635036    1.437537
+preopinfec~d |   .8885043   .2128859    -0.49   0.622     .5555349    1.421045
+chronicste~s |   1.305062   .2813133     1.24   0.217     .8553623    1.991188
+_Ipreopalb~1 |   1.297232   .1790731     1.89   0.059     .9897277    1.700277
+_Ipreopalb~2 |   1.001086   .1848403     0.01   0.995     .6971174    1.437597
+bleedingdi~r |   1.467688   .2131705     2.64   0.008     1.104087    1.951032
+_Ipreopsep~1 |    1.14208   .1616697     0.94   0.348     .8653716    1.507267
+_Ipreopsep~2 |   1.254914   .2505288     1.14   0.255     .8485582    1.855865
+_Ipreopsep~3 |   1.392648   .3121593     1.48   0.140     .8975241    2.160909
+totalwrvuq~e |   .8812073   .1218654    -0.91   0.360     .6719892    1.155564
+residentpr~t |   .8447075   .1075099    -1.33   0.185     .6582182    1.084034
+_Iincision~1 |   .9399817   .1745915    -0.33   0.739     .6531574    1.352761
+_Iincision~2 |   1.192253   .2429388     0.86   0.388     .7996938    1.777514
+_Iincision~3 |   1.216415   .2660418     0.90   0.370      .792348    1.867445
+     highasa |   1.653542   .2169161     3.83   0.000     1.278652    2.138347
+optimequar~e |   1.080809   .0720492     1.17   0.244     .9484314    1.231663
+anesthesi~le |   .9597325   .0590403    -0.67   0.504     .8507196    1.082715
+preophospi~s |   .9952491   .0096671    -0.49   0.624     .9764811    1.014378
+numage10y~39 |   1.466708   .0694441     8.09   0.000     1.336725    1.609332
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     2197
+area under ROC curve   =   0.7576
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2197
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        11.18
+                  Prob > chi2 =         0.1915
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 2
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       9129
+                                                  LR chi2(36)     =     368.83
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -352.88581                       Pseudo R2       =     0.3432
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   1.113043   .2686085     0.44   0.657     .6935747    1.786203
+_Ibmiclass_1 |   1.975109   .7600937     1.77   0.077     .9290045    4.199179
+_Ibmiclass_2 |   .8521397   .2483344    -0.55   0.583     .4813376    1.508592
+_Ibmiclass_3 |   .3307231   .1382685    -2.65   0.008     .1457454    .7504715
+_Ibmiclass_4 |   .6478948   .2552843    -1.10   0.271     .2993044    1.402478
+_Idiabetes_1 |   .8116472   .2978734    -0.57   0.570     .3953461    1.666315
+_Idiabetes_2 |   1.702412   .5770134     1.57   0.116     .8761117    3.308033
+  alcoholuse |    .862225   .6518513    -0.20   0.845      .195931    3.794356
+chronicpul~y |   2.097755   .4983466     3.12   0.002     1.316867    3.341703
+decreasedf~n |    2.47649   .6598201     3.40   0.001     1.469088      4.1747
+acutepulmo~y |   .8400643   .3429242    -0.43   0.669     .3774349    1.869748
+chroniccar~c |   1.505509   .4248126     1.45   0.147     .8659604    2.617391
+acutecardiac |   .8658762   .4214577    -0.30   0.767     .3335346    2.247867
+hypertension |   .9444236   .2682232    -0.20   0.840     .5412768    1.647837
+         pvd |   1.022285   .4895708     0.05   0.963     .3998826    2.613432
+       renal |   1.933059   .6462546     1.97   0.049     1.003862    3.722342
+acutecogni~e |    1.44977   .5757728     0.94   0.350     .6656508    3.157562
+cerebrovas~r |   1.301066   .3918556     0.87   0.382     .7209985    2.347819
+preopinfec~d |   .6701326   .3830794    -0.70   0.484     .2185615    2.054697
+chronicste~s |   1.465702   .6193271     0.90   0.366     .6402854    3.355195
+_Ipreopalb~1 |    1.29158   .3732699     0.89   0.376     .7330305     2.27573
+_Ipreopalb~2 |   1.055954   .4414319     0.13   0.896     .4653804    2.395974
+bleedingdi~r |   1.771341   .4964029     2.04   0.041     1.022728     3.06792
+_Ipreopsep~1 |   1.359854   .3994227     1.05   0.295     .7646686    2.418306
+_Ipreopsep~2 |   1.411605   .5517551     0.88   0.378     .6561501    3.036847
+_Ipreopsep~3 |   3.384012   1.473582     2.80   0.005     1.441361    7.944949
+totalwrvuq~e |    1.46757   .3783191     1.49   0.137     .8854638    2.432354
+residentpr~t |   1.142852   .2793894     0.55   0.585     .7077816    1.845357
+_Iincision~1 |   653694.9   5.23e+08     0.02   0.987            0           .
+_Iincision~2 |     436375   3.49e+08     0.02   0.987            0           .
+_Iincision~3 |   437221.6   3.50e+08     0.02   0.987            0           .
+     highasa |   3.166519    .867799     4.21   0.000     1.850574    5.418234
+optimequar~e |   1.037692   .1397351     0.27   0.784     .7969771     1.35111
+anesthesi~le |   1.250968   .1446296     1.94   0.053     .9973213    1.569123
+preophospi~s |   1.013831   .0069685     2.00   0.046     1.000265    1.027581
+numage10y~39 |   1.674207   .1505713     5.73   0.000     1.403639    1.996929
+------------------------------------------------------------------------------
+Note: 20 failures and 0 successes completely determined.
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     9129
+area under ROC curve   =   0.9242
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      9129
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        11.08
+                  Prob > chi2 =         0.1970
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 2
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       9129
+                                                  LR chi2(36)     =    1135.47
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -1469.0377                       Pseudo R2       =     0.2787
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .9547448   .1037008    -0.43   0.670     .7716725    1.181249
+_Ibmiclass_1 |   1.055368   .2772008     0.21   0.837     .6307095    1.765952
+_Ibmiclass_2 |   .9953566   .1437758    -0.03   0.974     .7499384    1.321088
+_Ibmiclass_3 |   .9373366   .1487408    -0.41   0.683     .6867886    1.279287
+_Ibmiclass_4 |   .9365399   .1605706    -0.38   0.702      .669248    1.310586
+_Idiabetes_1 |   1.145427   .1808587     0.86   0.390     .8405543    1.560878
+_Idiabetes_2 |   1.479642   .2602106     2.23   0.026     1.048248    2.088572
+  alcoholuse |   1.558156   .4184819     1.65   0.099      .920448    2.637682
+chronicpul~y |    1.64098   .1829164     4.44   0.000      1.31893    2.041667
+decreasedf~n |   2.214627   .2982391     5.90   0.000      1.70087    2.883567
+acutepulmo~y |   2.331728   .6173349     3.20   0.001     1.387773    3.917753
+chroniccar~c |   .9341753   .1462739    -0.43   0.664     .6873003    1.269727
+acutecardiac |   .5966209   .1944479    -1.58   0.113      .314977    1.130103
+hypertension |   1.157613   .1443256     1.17   0.240     .9066496    1.478043
+         pvd |   1.106754   .3252493     0.35   0.730     .6221609     1.96879
+       renal |   1.843531   .4180899     2.70   0.007     1.181976    2.875361
+acutecogni~e |   1.374744   .3744941     1.17   0.243       .80602    2.344756
+cerebrovas~r |   1.627722   .2691444     2.95   0.003     1.177155    2.250747
+preopinfec~d |   1.522594   .4662166     1.37   0.170      .835501    2.774732
+chronicste~s |   .7349164   .2046605    -1.11   0.269     .4257887    1.268474
+_Ipreopalb~1 |   1.348188   .1601272     2.52   0.012     1.068197    1.701569
+_Ipreopalb~2 |   .9578764   .1562617    -0.26   0.792      .695745     1.31877
+bleedingdi~r |   1.190998   .1964773     1.06   0.289     .8619651    1.645632
+_Ipreopsep~1 |   1.846605   .2193574     5.16   0.000     1.463054    2.330708
+_Ipreopsep~2 |   1.974337   .3446192     3.90   0.000     1.402312      2.7797
+_Ipreopsep~3 |   4.249954     1.1653     5.28   0.000     2.483088    7.274049
+totalwrvuq~e |   2.157789   .2559443     6.48   0.000      1.71019    2.722535
+residentpr~t |   .9800211   .1093412    -0.18   0.856     .7875292    1.219563
+_Iincision~1 |   1.152329   1.285892     0.13   0.899     .1293345    10.26687
+_Iincision~2 |   1.329918   1.485162     0.26   0.798     .1490257    11.86831
+_Iincision~3 |   2.036978   2.279644     0.64   0.525     .2271854    18.26384
+     highasa |   1.739437   .2673302     3.60   0.000     1.287032    2.350866
+optimequar~e |   1.300959   .0864379     3.96   0.000     1.142111      1.4819
+anesthesi~le |   1.232319   .0613899     4.19   0.000     1.117684    1.358711
+preophospi~s |   1.006647   .0052986     1.26   0.208     .9963156    1.017086
+numage10y~39 |   1.348391   .0512806     7.86   0.000     1.251537     1.45274
+------------------------------------------------------------------------------
+
+. lroc,  nograph
+
+Logistic model for majorcomplication
+
+number of observations =     9129
+area under ROC curve   =   0.8718
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      9129
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        13.14
+                  Prob > chi2 =         0.1073
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 2 & majorcomp == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =        535
+                                                  LR chi2(36)     =      80.82
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -172.77033                       Pseudo R2       =     0.1895
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |    .837189   .2544998    -0.58   0.559     .4613855    1.519088
+_Ibmiclass_1 |   1.715738   .9464168     0.98   0.328     .5819962    5.058032
+_Ibmiclass_2 |   .7002595   .2604446    -0.96   0.338     .3378121    1.451586
+_Ibmiclass_3 |   .3184876   .1564163    -2.33   0.020     .1216322    .8339433
+_Ibmiclass_4 |   .4964989   .2488001    -1.40   0.162     .1859403    1.325754
+_Idiabetes_1 |   .6184921   .2818282    -1.05   0.292     .2532021    1.510779
+_Idiabetes_2 |    1.36672   .5629699     0.76   0.448      .609619    3.064084
+  alcoholuse |   .1788101   .2122786    -1.45   0.147     .0174529    1.831958
+chronicpul~y |   1.376757   .4310288     1.02   0.307     .7453619    2.543007
+decreasedf~n |   2.308231   .7398883     2.61   0.009     1.231493    4.326396
+acutepulmo~y |   .4860262   .2310373    -1.52   0.129       .19144    1.233919
+chroniccar~c |   1.649303    .600028     1.38   0.169      .808402    3.364911
+acutecardiac |   1.155985   .7239892     0.23   0.817     .3387251    3.945088
+hypertension |   .9682785   .3417929    -0.09   0.927     .4847685    1.934043
+         pvd |   1.187373   .7406771     0.28   0.783      .349633    4.032387
+       renal |   1.033256   .4421936     0.08   0.939     .4466079    2.390503
+acutecogni~e |   1.099589   .5333748     0.20   0.845     .4249522    2.845251
+cerebrovas~r |   .9085773   .3301637    -0.26   0.792     .4457052     1.85215
+preopinfec~d |   .3746943   .2660324    -1.38   0.167     .0931805    1.506707
+chronicste~s |   3.044838   1.719315     1.97   0.049     1.006746    9.208913
+_Ipreopalb~1 |   .8426963   .3022126    -0.48   0.633     .4172614      1.7019
+_Ipreopalb~2 |   1.328011   .6899537     0.55   0.585     .4796991    3.676497
+bleedingdi~r |   1.587247   .5619015     1.31   0.192     .7930686    3.176717
+_Ipreopsep~1 |     1.2019   .4518149     0.49   0.625     .5752901    2.511017
+_Ipreopsep~2 |    1.08338   .5171869     0.17   0.867     .4250422    2.761403
+_Ipreopsep~3 |   2.006373   1.055439     1.32   0.186     .7155549    5.625752
+totalwrvuq~e |    .776515   .2357037    -0.83   0.405     .4283273    1.407745
+residentpr~t |   .8800119   .2795518    -0.40   0.687     .4721596    1.640168
+_Iincision~1 |   36507.22   2.54e+07     0.02   0.988            0           .
+_Iincision~2 |   19671.35   1.37e+07     0.01   0.989            0           .
+_Iincision~3 |   14053.33    9758591     0.01   0.989            0           .
+     highasa |    2.78777    .975383     2.93   0.003     1.404233    5.534454
+optimequar~e |    .887504   .1594172    -0.66   0.506     .6241284    1.262021
+anesthesi~le |   1.131699   .1684129     0.83   0.406     .8453954    1.514962
+preophospi~s |   1.017534   .0232889     0.76   0.448     .9728973    1.064219
+numage10y~39 |   1.209009   .1379784     1.66   0.096     .9666871    1.512074
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =      535
+area under ROC curve   =   0.7925
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =       535
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         2.20
+                  Prob > chi2 =         0.9741
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 3
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       8976
+                                                  LR chi2(36)     =     707.04
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -837.51974                       Pseudo R2       =     0.2968
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .7468351   .1127926    -1.93   0.053      .555482    1.004106
+_Ibmiclass_1 |   .8608748   .2131633    -0.61   0.545     .5298732    1.398647
+_Ibmiclass_2 |   .6363248   .1257006    -2.29   0.022     .4320472    .9371875
+_Ibmiclass_3 |   .9279878   .2091693    -0.33   0.740     .5965965    1.443457
+_Ibmiclass_4 |    .888705   .1972132    -0.53   0.595     .5752636     1.37293
+_Idiabetes_1 |   1.045872   .2319399     0.20   0.840      .677189    1.615277
+_Idiabetes_2 |   .8573864    .227521    -0.58   0.562     .5096791    1.442303
+  alcoholuse |   1.650387   .5719453     1.45   0.148     .8367579    3.255154
+chronicpul~y |   1.216021   .1810244     1.31   0.189     .9082934    1.628007
+decreasedf~n |   2.045653   .3303701     4.43   0.000      1.49061    2.807371
+acutepulmo~y |   1.477647   .3783871     1.52   0.127     .8945403    2.440851
+chroniccar~c |   1.190765   .2231371     0.93   0.351      .824745    1.719224
+acutecardiac |   .7311743   .3023375    -0.76   0.449     .3251268    1.644331
+hypertension |   1.104833    .183745     0.60   0.549     .7975048    1.530595
+         pvd |   1.376382   .4987068     0.88   0.378     .6765843    2.799989
+       renal |   1.771309   .4104008     2.47   0.014     1.124803    2.789409
+acutecogni~e |   2.015097   .5313619     2.66   0.008     1.201828    3.378701
+cerebrovas~r |   .6838075   .1521365    -1.71   0.088     .4421349    1.057579
+preopinfec~d |    1.05621   .2981188     0.19   0.846     .6074292    1.836558
+chronicste~s |   1.440993   .3857285     1.36   0.172     .8527272    2.435082
+_Ipreopalb~1 |   1.666418   .2811468     3.03   0.002     1.197222    2.319492
+_Ipreopalb~2 |   1.117101   .2120028     0.58   0.560     .7701081     1.62044
+bleedingdi~r |   .9687209   .1767897    -0.17   0.862     .6774169    1.385292
+_Ipreopsep~1 |   1.331655   .2322004     1.64   0.100     .9461673    1.874199
+_Ipreopsep~2 |   2.231995   .5645543     3.17   0.002     1.359542    3.664322
+_Ipreopsep~3 |   2.354641   .7094786     2.84   0.004     1.304513    4.250117
+totalwrvuq~e |   1.005534   .0817345     0.07   0.946     .8574466    1.179197
+residentpr~t |   .8113227   .1219258    -1.39   0.164     .6043309    1.089212
+_Iincision~1 |   1.146722    .223824     0.70   0.483     .7821961    1.681128
+_Iincision~2 |   2.277921   .4855416     3.86   0.000     1.500045    3.459181
+_Iincision~3 |   1.834942   .4497867     2.48   0.013      1.13494    2.966685
+     highasa |   3.374896    .544267     7.54   0.000     2.460298    4.629488
+optimequar~e |   .9843177   .0720979    -0.22   0.829     .8526832    1.136274
+anesthesi~le |   1.207985    .086445     2.64   0.008     1.049901    1.389871
+preophospi~s |   1.010114   .0101819     1.00   0.318     .9903534    1.030268
+numage10y~39 |   1.711114   .1035738     8.87   0.000     1.519692    1.926647
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     8976
+area under ROC curve   =   0.9017
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      8976
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        17.03
+                  Prob > chi2 =         0.0298
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 3
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       8976
+                                                  LR chi2(36)     =    1735.99
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -2662.6366                       Pseudo R2       =     0.2458
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .8893678   .0689676    -1.51   0.131      .763965    1.035355
+_Ibmiclass_1 |   .9423431   .1462361    -0.38   0.702      .695211    1.277325
+_Ibmiclass_2 |   .9584134   .1033416    -0.39   0.694     .7758388    1.183952
+_Ibmiclass_3 |   1.067622   .1303498     0.54   0.592     .8404097    1.356262
+_Ibmiclass_4 |    1.29725   .1459476     2.31   0.021      1.04054    1.617292
+_Idiabetes_1 |   1.128137   .1246568     1.09   0.275     .9084603    1.400935
+_Idiabetes_2 |   1.082439    .145168     0.59   0.555     .8322376    1.407861
+  alcoholuse |   1.515927   .2828259     2.23   0.026     1.051647    2.185177
+chronicpul~y |   1.298221    .099274     3.41   0.001     1.117527    1.508132
+decreasedf~n |   1.540918   .1506407     4.42   0.000     1.272231    1.866351
+acutepulmo~y |   1.514043   .3279159     1.92   0.055     .9903356    2.314696
+chroniccar~c |   1.143023   .1300252     1.18   0.240     .9145893    1.428512
+acutecardiac |   .5229084   .1498727    -2.26   0.024      .298167    .9170471
+hypertension |    1.11652   .0925734     1.33   0.184     .9490547    1.313535
+         pvd |   1.165596   .2997129     0.60   0.551     .7041677    1.929389
+       renal |   1.549143   .2525017     2.69   0.007     1.125513    2.132223
+acutecogni~e |   2.142652   .4977061     3.28   0.001     1.359034    3.378105
+cerebrovas~r |   1.135936     .14319     1.01   0.312     .8872702    1.454292
+preopinfec~d |   2.068615   .3601242     4.18   0.000       1.4706    2.909812
+chronicste~s |   1.330562   .2256109     1.68   0.092     .9543442    1.855092
+_Ipreopalb~1 |   1.720397   .1581461     5.90   0.000     1.436755    2.060035
+_Ipreopalb~2 |   1.017263    .088945     0.20   0.845      .857053     1.20742
+bleedingdi~r |    1.26975   .1371823     2.21   0.027     1.027438     1.56921
+_Ipreopsep~1 |    1.53448   .1292829     5.08   0.000     1.300906    1.809992
+_Ipreopsep~2 |   2.390003    .379007     5.49   0.000     1.751518    3.261235
+_Ipreopsep~3 |   3.198478   .8610932     4.32   0.000     1.887049    5.421302
+totalwrvuq~e |   1.350345   .0574509     7.06   0.000      1.24231    1.467775
+residentpr~t |   .9315657    .073523    -0.90   0.369     .7980557    1.087411
+_Iincision~1 |   1.244598   .1128289     2.41   0.016      1.04199    1.486602
+_Iincision~2 |   1.808695    .201984     5.31   0.000     1.453143    2.251243
+_Iincision~3 |   2.520159   .3287136     7.09   0.000     1.951653    3.254268
+     highasa |   1.974094   .1855383     7.24   0.000     1.641974    2.373391
+optimequar~e |   1.276542   .0512633     6.08   0.000      1.17992    1.381076
+anesthesi~le |   1.373057   .0503198     8.65   0.000     1.277891    1.475311
+preophospi~s |   1.010306   .0066811     1.55   0.121     .9972958    1.023486
+numage10y~39 |   1.187433   .0325488     6.27   0.000     1.125322    1.252972
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for majorcomplication
+
+number of observations =     8976
+area under ROC curve   =   0.8356
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      8976
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        19.57
+                  Prob > chi2 =         0.0121
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 3 & majorcomp == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       1200
+                                                  LR chi2(36)     =     175.69
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -482.35045                       Pseudo R2       =     0.1541
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .7762116   .1392143    -1.41   0.158     .5461555    1.103174
+_Ibmiclass_1 |    1.10909   .3351899     0.34   0.732     .6133613    2.005476
+_Ibmiclass_2 |   .6470701   .1563327    -1.80   0.072     .4029957    1.038968
+_Ibmiclass_3 |   1.051563   .2816107     0.19   0.851     .6221311    1.777415
+_Ibmiclass_4 |   .8486683   .2226348    -0.63   0.532      .507503    1.419179
+_Idiabetes_1 |   .9295774   .2397538    -0.28   0.777     .5607203    1.541079
+_Idiabetes_2 |   .9139903   .2758619    -0.30   0.766     .5058604    1.651401
+  alcoholuse |   .9678661   .4201488    -0.08   0.940     .4133427    2.266315
+chronicpul~y |   1.100136   .1915592     0.55   0.584     .7820464    1.547606
+decreasedf~n |   1.674958   .3081014     2.80   0.005     1.167963    2.402033
+acutepulmo~y |    1.01654   .2899852     0.06   0.954     .5811719     1.77805
+chroniccar~c |   1.084466   .2378254     0.37   0.712     .7055794     1.66681
+acutecardiac |   .9663093   .4713512    -0.07   0.944     .3714606    2.513735
+hypertension |   1.043605   .2015609     0.22   0.825     .7147195    1.523829
+         pvd |    1.34819   .5464695     0.74   0.461     .6091565    2.983826
+       renal |   1.616452    .425114     1.83   0.068     .9653917    2.706587
+acutecogni~e |   1.582091   .4610873     1.57   0.115     .8936265    2.800961
+cerebrovas~r |   .6551394   .1655524    -1.67   0.094     .3992425    1.075055
+preopinfec~d |    .741014   .2289961    -0.97   0.332     .4043701    1.357919
+chronicste~s |   1.179132   .3851099     0.50   0.614     .6216646    2.236499
+_Ipreopalb~1 |    1.28658   .2502897     1.30   0.195     .8787091    1.883773
+_Ipreopalb~2 |   1.236771   .2778648     0.95   0.344     .7962512    1.921004
+bleedingdi~r |   .8036439   .1684501    -1.04   0.297     .5328992    1.211943
+_Ipreopsep~1 |   1.024432   .2085932     0.12   0.906     .6873264    1.526875
+_Ipreopsep~2 |    1.61402   .4520827     1.71   0.087     .9321581    2.794655
+_Ipreopsep~3 |   1.421225     .46903     1.07   0.287      .744305    2.713781
+totalwrvuq~e |   .9074161   .0927518    -0.95   0.342     .7426782    1.108696
+residentpr~t |    .900138   .1629029    -0.58   0.561     .6313388    1.283381
+_Iincision~1 |   1.039445   .2484828     0.16   0.871     .6506069    1.660672
+_Iincision~2 |   1.462621    .374664     1.48   0.138     .8852959    2.416434
+_Iincision~3 |   1.005641   .2809028     0.02   0.984     .5816736    1.738628
+     highasa |   2.352527   .4422508     4.55   0.000     1.627487     3.40057
+optimequar~e |   .8437667   .0779782    -1.84   0.066     .7039747    1.011318
+anesthesi~le |    1.01012   .0879162     0.12   0.908     .8517033    1.198002
+preophospi~s |    1.00485   .0091792     0.53   0.596     .9870189    1.023003
+numage10y~39 |   1.531677   .1086379     6.01   0.000     1.332888    1.760114
+------------------------------------------------------------------------------
+
+. lroc, nogrpah
+option nogrpah not allowed
+invalid syntax
+r(198);
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     1200
+area under ROC curve   =   0.7715
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      1200
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         6.91
+                  Prob > chi2 =         0.5460
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 4
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2710
+                                                  LR chi2(36)     =     852.77
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -1216.1506                       Pseudo R2       =     0.2596
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .8873932   .0955969    -1.11   0.267     .7184855    1.096009
+_Ibmiclass_1 |   1.569998   .2581536     2.74   0.006     1.137461    2.167013
+_Ibmiclass_2 |   .7779623     .10625    -1.84   0.066     .5952589    1.016743
+_Ibmiclass_3 |   .8205065   .1300859    -1.25   0.212     .6013532    1.119527
+_Ibmiclass_4 |   .7738154    .133694    -1.48   0.138     .5515351    1.085679
+_Idiabetes_1 |   .9752006   .1564649    -0.16   0.876     .7120721    1.335562
+_Idiabetes_2 |   .8972497   .1373959    -0.71   0.479     .6646128    1.211317
+  alcoholuse |   1.038741   .2593162     0.15   0.879     .6368096    1.694359
+chronicpul~y |   1.206266   .1275257     1.77   0.076     .9805157    1.483992
+decreasedf~n |   1.833989   .2149011     5.18   0.000     1.457658     2.30748
+acutepulmo~y |   1.749316   .2455318     3.98   0.000     1.328602    2.303255
+chroniccar~c |   1.091344   .1306589     0.73   0.465     .8630842    1.379971
+acutecardiac |   .9112261   .1568438    -0.54   0.589     .6503005    1.276845
+hypertension |   1.225963   .1567548     1.59   0.111     .9542025    1.575122
+         pvd |    1.10776   .1756654     0.65   0.519     .8118291    1.511565
+       renal |   1.572371   .2010175     3.54   0.000     1.223867    2.020113
+acutecogni~e |   1.249524   .1701865     1.64   0.102     .9567757    1.631846
+cerebrovas~r |   .8935153   .1182705    -0.85   0.395     .6893383    1.158168
+preopinfec~d |   1.053697   .2047788     0.27   0.788     .7199306    1.542201
+chronicste~s |   1.172737   .2046173     0.91   0.361     .8330755    1.650885
+_Ipreopalb~1 |   1.395493   .1718573     2.71   0.007     1.096228    1.776457
+_Ipreopalb~2 |   .8704649   .1502527    -0.80   0.422      .620617    1.220897
+bleedingdi~r |   1.202103   .1365258     1.62   0.105     .9622078    1.501809
+_Ipreopsep~1 |     1.4817    .227222     2.56   0.010      1.09705    2.001215
+_Ipreopsep~2 |   2.092067   .3619519     4.27   0.000     1.490417     2.93659
+_Ipreopsep~3 |   2.289078    .394254     4.81   0.000     1.633263    3.208229
+totalwrvuq~e |    .955843   .1089844    -0.40   0.692     .7644223    1.195198
+residentpr~t |   1.167088   .1328114     1.36   0.175     .9337684    1.458707
+_Iincision~1 |   .7818849   .1705502    -1.13   0.259     .5098856    1.198983
+_Iincision~2 |   .7195937   .1544432    -1.53   0.125     .4724956    1.095915
+_Iincision~3 |   .9887652   .2146227    -0.05   0.958     .6461454     1.51306
+     highasa |   2.893989    .375812     8.18   0.000     2.243677     3.73279
+optimequar~e |   .6258747   .0350548    -8.37   0.000     .5608055    .6984937
+anesthesi~le |   1.137545   .0654386     2.24   0.025     1.016254    1.273313
+preophospi~s |   1.008068    .007682     1.05   0.292     .9931232    1.023237
+numage10y~39 |   1.359475   .0566594     7.37   0.000      1.25284    1.475188
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     2710
+area under ROC curve   =   0.8298
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2710
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        16.97
+                  Prob > chi2 =         0.0305
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 4
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2710
+                                                  LR chi2(36)     =     437.29
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -1658.2894                       Pseudo R2       =     0.1165
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .9202408   .0818439    -0.93   0.350     .7730324    1.095482
+_Ibmiclass_1 |   1.011584   .1436595     0.08   0.935     .7658068    1.336241
+_Ibmiclass_2 |   1.040503   .1160108     0.36   0.722     .8362547    1.294637
+_Ibmiclass_3 |   1.063496   .1406253     0.47   0.642      .820696    1.378129
+_Ibmiclass_4 |   .9851884   .1404792    -0.10   0.917     .7449814    1.302846
+_Idiabetes_1 |   1.168982   .1594588     1.14   0.252     .8947399     1.52728
+_Idiabetes_2 |   .9827582   .1329068    -0.13   0.898     .7539307    1.281038
+  alcoholuse |   1.399441   .2969269     1.58   0.113     .9233164    2.121087
+chronicpul~y |   1.280045    .112261     2.82   0.005      1.07789    1.520115
+decreasedf~n |    1.46009     .14954     3.70   0.000     1.194541    1.784672
+acutepulmo~y |   .9826185   .1338599    -0.13   0.898     .7523634    1.283341
+chroniccar~c |    1.07287   .1127634     0.67   0.503     .8731362    1.318294
+acutecardiac |   1.128194   .1849992     0.74   0.462     .8180983    1.555831
+hypertension |   1.208139   .1243984     1.84   0.066     .9873504      1.4783
+         pvd |   .6980543   .0981275    -2.56   0.011     .5299481    .9194859
+       renal |   1.261606   .1530006     1.92   0.055     .9947063    1.600121
+acutecogni~e |   1.386047   .1865577     2.43   0.015     1.064654    1.804459
+cerebrovas~r |   .8945147   .1044986    -0.95   0.340     .7114572    1.124673
+preopinfec~d |   .9481292   .1705294    -0.30   0.767      .666456     1.34885
+chronicste~s |    1.19503   .1868875     1.14   0.255     .8795519    1.623663
+_Ipreopalb~1 |   1.162594   .1164866     1.50   0.133     .9553038    1.414863
+_Ipreopalb~2 |   1.197311   .1514204     1.42   0.154     .9344538    1.534108
+bleedingdi~r |   1.151709   .1151602     1.41   0.158     .9467397    1.401055
+_Ipreopsep~1 |   1.410073   .1568305     3.09   0.002     1.133887    1.753531
+_Ipreopsep~2 |   1.405134   .1935525     2.47   0.014     1.072674    1.840636
+_Ipreopsep~3 |   1.422918   .2100989     2.39   0.017     1.065361    1.900478
+totalwrvuq~e |   1.207477   .1120073     2.03   0.042     1.006747     1.44823
+residentpr~t |   .8707218   .0816641    -1.48   0.140      .724513    1.046436
+_Iincision~1 |   1.091829   .1985855     0.48   0.629     .7644252    1.559459
+_Iincision~2 |   1.357491    .245548     1.69   0.091     .9522886    1.935109
+_Iincision~3 |   1.326584    .245138     1.53   0.126      .923511    1.905581
+     highasa |   2.137803   .2149969     7.55   0.000     1.755348    2.603588
+optimequar~e |   1.525228   .0746401     8.63   0.000     1.385733    1.678765
+anesthesi~le |   1.096481    .050008     2.02   0.043      1.00272    1.199009
+preophospi~s |   1.003116   .0069848     0.45   0.655     .9895185    1.016899
+numage10y~39 |   1.047746   .0335441     1.46   0.145     .9840213    1.115598
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for majorcomplication
+
+number of observations =     2710
+area under ROC curve   =   0.7259
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2710
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        10.74
+                  Prob > chi2 =         0.2169
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 4 & majorcomp == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       1400
+                                                  LR chi2(36)     =     249.95
+                                                  Prob > chi2     =     0.0000
+Log likelihood =  -782.0668                       Pseudo R2       =     0.1378
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .9546663   .1251279    -0.35   0.723     .7383883    1.234293
+_Ibmiclass_1 |   1.213633   .2518839     0.93   0.351     .8080248    1.822848
+_Ibmiclass_2 |   .7044309   .1171235    -2.11   0.035     .5085245    .9758092
+_Ibmiclass_3 |   .6492063   .1267911    -2.21   0.027     .4427326    .9519713
+_Ibmiclass_4 |   .6717716   .1410992    -1.89   0.058     .4450767    1.013931
+_Idiabetes_1 |   .8222055   .1606006    -1.00   0.316     .5606813    1.205715
+_Idiabetes_2 |   .9569271   .1767519    -0.24   0.812     .6662777    1.374366
+  alcoholuse |   1.134738    .334236     0.43   0.668      .637052    2.021232
+chronicpul~y |   1.157994   .1489537     1.14   0.254     .8999441    1.490037
+decreasedf~n |   1.604734   .2325256     3.26   0.001     1.207992    2.131778
+acutepulmo~y |    1.72491   .2938452     3.20   0.001     1.235268    2.408641
+chroniccar~c |   1.452065   .2090112     2.59   0.010     1.095125    1.925345
+acutecardiac |   .8422572   .1702582    -0.85   0.396      .566733    1.251731
+hypertension |   1.076396    .172664     0.46   0.646     .7860163    1.474052
+         pvd |   1.275302    .255999     1.21   0.226     .8604912    1.890079
+       renal |   1.542616    .233696     2.86   0.004     1.146321    2.075913
+acutecogni~e |   .9836778   .1555888    -0.10   0.917     .7214694    1.341182
+cerebrovas~r |   1.013302   .1632071     0.08   0.935     .7389933    1.389432
+preopinfec~d |   1.238803    .284822     0.93   0.352     .7893986    1.944053
+chronicste~s |   1.160046   .2398451     0.72   0.473     .7735442    1.739663
+_Ipreopalb~1 |   1.157174     .17567     0.96   0.336     .8593662    1.558185
+_Ipreopalb~2 |   .8833182   .1831739    -0.60   0.550      .588306    1.326267
+bleedingdi~r |   1.221012   .1661627     1.47   0.142     .9351539     1.59425
+_Ipreopsep~1 |   1.152368   .2182757     0.75   0.454     .7949886    1.670404
+_Ipreopsep~2 |   1.617932    .349195     2.23   0.026     1.059856    2.469866
+_Ipreopsep~3 |   1.332668    .282104     1.36   0.175     .8801088    2.017936
+totalwrvuq~e |   1.115586   .1631292     0.75   0.454     .8375947     1.48584
+residentpr~t |   1.045807   .1451299     0.32   0.747       .79676    1.372699
+_Iincision~1 |   .7342776   .2090134    -1.09   0.278     .4203047    1.282792
+_Iincision~2 |   .5638054   .1583733    -2.04   0.041     .3251068    .9777601
+_Iincision~3 |   .7435272   .2119347    -1.04   0.298     .4252759    1.299939
+     highasa |   1.983615   .3214624     4.23   0.000     1.443818    2.725223
+optimequar~e |   .8045275   .0609703    -2.87   0.004     .6934793    .9333581
+anesthesi~le |   1.078232   .0776912     1.05   0.296     .9362239    1.241781
+preophospi~s |   1.004001   .0084167     0.48   0.634     .9876393    1.020634
+numage10y~39 |   1.410213   .0736362     6.58   0.000     1.273028    1.562181
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     1400
+area under ROC curve   =   0.7428
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      1400
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         9.31
+                  Prob > chi2 =         0.3172
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 5
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       3199
+                                                  LR chi2(36)     =     412.29
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -483.84442                       Pseudo R2       =     0.2988
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .9975361   .1900367    -0.01   0.990      .686704    1.449064
+_Ibmiclass_1 |   1.876938   .6089733     1.94   0.052     .9937506    3.545052
+_Ibmiclass_2 |   .6624974   .1534723    -1.78   0.076     .4207239    1.043209
+_Ibmiclass_3 |   .7566743   .2033103    -1.04   0.299     .4468896    1.281202
+_Ibmiclass_4 |   .6959856   .2052586    -1.23   0.219     .3904502    1.240609
+_Idiabetes_1 |   1.167483   .3077071     0.59   0.557     .6964723    1.957028
+_Idiabetes_2 |   .6302334   .2185097    -1.33   0.183     .3194326    1.243436
+  alcoholuse |   .5939532   .3068764    -1.01   0.313     .2157565    1.635086
+chronicpul~y |   1.875559   .3480375     3.39   0.001     1.303701     2.69826
+decreasedf~n |   1.845803    .363293     3.11   0.002     1.255021    2.714688
+acutepulmo~y |   1.183697   .3555696     0.56   0.575     .6569749    2.132711
+chroniccar~c |   1.272279   .2812179     1.09   0.276     .8249684    1.962129
+acutecardiac |   1.136217   .4658655     0.31   0.755     .5086935    2.537852
+hypertension |   .9591011   .1970782    -0.20   0.839      .641147    1.434733
+         pvd |   1.282758   .6008611     0.53   0.595     .5121893    3.212617
+       renal |   1.104659   .3367723     0.33   0.744     .6077515    2.007845
+acutecogni~e |   1.434987   .4605983     1.13   0.261     .7649477    2.691934
+cerebrovas~r |    .832072   .2113103    -0.72   0.469      .505816    1.368766
+preopinfec~d |   1.089916   .4121797     0.23   0.820     .5193851    2.287161
+chronicste~s |   2.127554   .4590263     3.50   0.000     1.393899    3.247357
+_Ipreopalb~1 |   2.353553   .5860369     3.44   0.001     1.444687    3.834193
+_Ipreopalb~2 |   1.292667   .4104597     0.81   0.419     .6937539    2.408619
+bleedingdi~r |   .9787869    .208704    -0.10   0.920     .6444494    1.486577
+_Ipreopsep~1 |   1.505809   .3486597     1.77   0.077     .9564887    2.370608
+_Ipreopsep~2 |   1.662228   .4211942     2.01   0.045     1.011588    2.731352
+_Ipreopsep~3 |   2.973861   .9666326     3.35   0.001     1.572692    5.623384
+totalwrvuq~e |   1.455143   .5590231     0.98   0.329     .6853288    3.089671
+residentpr~t |   1.516775   .2911963     2.17   0.030     1.041128    2.209724
+_Iincision~1 |   .8311043   .7733508    -0.20   0.842     .1341541    5.148812
+_Iincision~2 |   .9010013   .8450646    -0.11   0.911     .1433405    5.663461
+_Iincision~3 |   .5644135   .5231378    -0.62   0.537     .0917581    3.471765
+     highasa |    2.55799   .4993521     4.81   0.000     1.744751    3.750284
+optimequar~e |   1.067712   .1604023     0.44   0.663     .7953865    1.433277
+anesthesi~le |   1.146147   .1104607     1.42   0.157     .9488667    1.384444
+preophospi~s |   1.030902   .0186845     1.68   0.093     .9949237    1.068181
+numage10y~39 |   1.934064    .166579     7.66   0.000     1.633645    2.289728
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     3199
+area under ROC curve   =   0.8852
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      3199
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         3.87
+                  Prob > chi2 =         0.8690
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 5
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       3199
+                                                  LR chi2(36)     =     646.05
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -1606.1959                       Pseudo R2       =     0.1674
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .9271406   .0870137    -0.81   0.420     .7713632    1.114377
+_Ibmiclass_1 |   1.256772   .2869074     1.00   0.317     .8034083    1.965968
+_Ibmiclass_2 |     1.2096   .1457575     1.58   0.114       .95515    1.531835
+_Ibmiclass_3 |   1.272438   .1741516     1.76   0.078     .9730549    1.663933
+_Ibmiclass_4 |   1.349827   .1972734     2.05   0.040     1.013625    1.797541
+_Idiabetes_1 |   1.285115   .1898059     1.70   0.089     .9621063    1.716567
+_Idiabetes_2 |   1.519187   .3020849     2.10   0.035     1.028852    2.243208
+  alcoholuse |   1.381839    .252231     1.77   0.076     .9662403    1.976194
+chronicpul~y |   1.472295   .1398593     4.07   0.000     1.222182    1.773593
+decreasedf~n |   1.404019   .1625551     2.93   0.003      1.11898    1.761667
+acutepulmo~y |   2.843385   .7255402     4.10   0.000     1.724394     4.68851
+chroniccar~c |   .8723649   .1205322    -0.99   0.323      .665411    1.143685
+acutecardiac |   .8551433   .2664172    -0.50   0.615     .4643546     1.57481
+hypertension |   1.129177   .1134056     1.21   0.226     .9274149    1.374833
+         pvd |   .7901871   .2682927    -0.69   0.488     .4061822     1.53723
+       renal |   1.687475   .3582011     2.46   0.014     1.113147    2.558128
+acutecogni~e |   .9154867   .2472892    -0.33   0.744      .539172     1.55445
+cerebrovas~r |   1.133392   .1765428     0.80   0.421     .8352041    1.538039
+preopinfec~d |   1.134097   .3193125     0.45   0.655     .6531138    1.969299
+chronicste~s |   1.133799   .1527091     0.93   0.351     .8707415    1.476327
+_Ipreopalb~1 |   1.783056   .1867387     5.52   0.000     1.452175    2.189329
+_Ipreopalb~2 |   1.081913   .1343747     0.63   0.526     .8481489    1.380106
+bleedingdi~r |   1.062395   .1416833     0.45   0.650     .8180278    1.379762
+_Ipreopsep~1 |   1.476017   .1634037     3.52   0.000     1.188115    1.833684
+_Ipreopsep~2 |   1.719329   .2059238     4.52   0.000     1.359598    2.174239
+_Ipreopsep~3 |   2.763911   .6294434     4.46   0.000     1.768782    4.318905
+totalwrvuq~e |   1.465579   .2339877     2.39   0.017     1.071791    2.004048
+residentpr~t |   1.182076    .110204     1.79   0.073     .9846653    1.419065
+_Iincision~1 |    .921355   .5494355    -0.14   0.891     .2863033    2.965019
+_Iincision~2 |   .7946647   .4786927    -0.38   0.703      .244025    2.587817
+_Iincision~3 |   .8006365   .4754089    -0.37   0.708     .2500354    2.563712
+     highasa |   2.191887   .2506957     6.86   0.000     1.751711    2.742671
+optimequar~e |   1.312219   .1056564     3.37   0.001      1.12065    1.536537
+anesthesi~le |   1.202147   .0535381     4.13   0.000     1.101664    1.311796
+preophospi~s |   1.037315   .0152511     2.49   0.013      1.00785    1.067641
+numage10y~39 |   1.177557   .0434986     4.42   0.000     1.095314    1.265975
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for majorcomplication
+
+number of observations =     3199
+area under ROC curve   =   0.7688
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      3199
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         7.40
+                  Prob > chi2 =         0.4937
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 5 & majorcomp == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =        931
+                                                  LR chi2(36)     =     161.89
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -331.75508                       Pseudo R2       =     0.1961
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   1.093619   .2393577     0.41   0.683     .7121405    1.679447
+_Ibmiclass_1 |     1.1335   .4662841     0.30   0.761     .5061343    2.538502
+_Ibmiclass_2 |   .5920145   .1569366    -1.98   0.048     .3521179    .9953517
+_Ibmiclass_3 |   .6075611   .1851362    -1.64   0.102     .3343578    1.103998
+_Ibmiclass_4 |   .6639494   .2127048    -1.28   0.201     .3543574    1.244023
+_Idiabetes_1 |   .9595604   .2814915    -0.14   0.888     .5399684    1.705204
+_Idiabetes_2 |   .3941889   .1592581    -2.30   0.021     .1785692    .8701664
+  alcoholuse |    .860313   .4620144    -0.28   0.779     .3002861    2.464778
+chronicpul~y |   1.382864   .3010876     1.49   0.137     .9025044    2.118895
+decreasedf~n |   1.590997   .3544597     2.08   0.037     1.028086    2.462121
+acutepulmo~y |   1.216823   .3901218     0.61   0.540     .6491222    2.281017
+chroniccar~c |   1.211368   .3061283     0.76   0.448     .7381875     1.98786
+acutecardiac |   1.197222   .5844671     0.37   0.712     .4598648    3.116875
+hypertension |   1.199152    .288672     0.75   0.451     .7481084    1.922136
+         pvd |   1.473989   .8172095     0.70   0.484     .4972457    4.369359
+       renal |   1.202176   .4045448     0.55   0.584     .6216266    2.324911
+acutecogni~e |   1.244837   .4650216     0.59   0.558     .5986008    2.588735
+cerebrovas~r |   .8475039   .2441354    -0.57   0.566     .4818825    1.490535
+preopinfec~d |    .728517   .3464935    -0.67   0.505     .2868109    1.850477
+chronicste~s |   1.801866   .4688035     2.26   0.024     1.082081    3.000442
+_Ipreopalb~1 |    2.08431   .5908474     2.59   0.010     1.195829    3.632919
+_Ipreopalb~2 |   1.327526   .4994927     0.75   0.451     .6349966     2.77533
+bleedingdi~r |   1.011708   .2472152     0.05   0.962     .6267011     1.63324
+_Ipreopsep~1 |   1.092476   .2914559     0.33   0.740     .6476261     1.84289
+_Ipreopsep~2 |   .9949155   .2931969    -0.02   0.986     .5583945    1.772684
+_Ipreopsep~3 |   1.438207   .5400674     0.97   0.333     .6889428     3.00234
+totalwrvuq~e |   1.349724   .6980973     0.58   0.562     .4897683    3.719624
+residentpr~t |   1.185004   .2591158     0.78   0.438     .7719589    1.819054
+_Iincision~1 |   .8204636   1.122998    -0.14   0.885     .0561034    11.99857
+_Iincision~2 |   1.030292   1.413619     0.02   0.983     .0699943    15.16553
+_Iincision~3 |   .5747749   .7824166    -0.41   0.684     .0398835    8.283277
+     highasa |   1.672332   .3714965     2.31   0.021     1.082018    2.584704
+optimequar~e |   .8932792   .1645672    -0.61   0.540     .6225466    1.281748
+anesthesi~le |    1.00642   .1094532     0.06   0.953      .813218    1.245523
+preophospi~s |    1.02604   .0202009     1.31   0.192     .9872011    1.066407
+numage10y~39 |   1.816559   .1831461     5.92   0.000      1.49084    2.213441
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =      931
+area under ROC curve   =   0.8014
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =       931
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        20.97
+                  Prob > chi2 =         0.0072
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 6
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2690
+                                                  LR chi2(36)     =     684.20
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -872.59042                       Pseudo R2       =     0.2816
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   1.001649   .1295691     0.01   0.990     .7773344    1.290695
+_Ibmiclass_1 |    1.61568   .3206874     2.42   0.016     1.094977    2.383996
+_Ibmiclass_2 |   .9930459   .1637284    -0.04   0.966     .7188321    1.371864
+_Ibmiclass_3 |   .6710222   .1389627    -1.93   0.054     .4471576    1.006962
+_Ibmiclass_4 |   1.122476    .226268     0.57   0.567     .7561233    1.666333
+_Idiabetes_1 |   1.040143   .2136356     0.19   0.848     .6954469    1.555685
+_Idiabetes_2 |   .8228777   .1776698    -0.90   0.367      .538952    1.256379
+  alcoholuse |   1.021992   .3036316     0.07   0.942     .5708968    1.829522
+chronicpul~y |   1.139726   .1479491     1.01   0.314        .8837    1.469927
+decreasedf~n |   2.302753   .3262214     5.89   0.000     1.744461     3.03972
+acutepulmo~y |   1.356473   .2355422     1.76   0.079     .9651745    1.906411
+chroniccar~c |   .9922139   .1671237    -0.05   0.963     .7132357    1.380313
+acutecardiac |   .9718483   .2608929    -0.11   0.915     .5742396    1.644765
+hypertension |   1.096936   .1574214     0.64   0.519     .8279899     1.45324
+         pvd |   1.657365   .4617552     1.81   0.070     .9599894    2.861341
+       renal |   1.300594   .2417515     1.41   0.157     .9034877    1.872239
+acutecogni~e |    1.18271   .2151294     0.92   0.356     .8280355    1.689304
+cerebrovas~r |    1.12297   .2025418     0.64   0.520     .7885752    1.599164
+preopinfec~d |   1.140226   .2330693     0.64   0.521     .7638362    1.702088
+chronicste~s |   1.485393   .2299993     2.56   0.011     1.096581    2.012065
+_Ipreopalb~1 |   1.615223   .2689078     2.88   0.004     1.165525    2.238429
+_Ipreopalb~2 |   1.391874   .2786429     1.65   0.099     .9401465     2.06065
+bleedingdi~r |   1.138441   .1754111     0.84   0.400     .8416997    1.539798
+_Ipreopsep~1 |   1.341477   .2601869     1.51   0.130     .9172505    1.961907
+_Ipreopsep~2 |   1.698563   .3164765     2.84   0.004     1.178924    2.447246
+_Ipreopsep~3 |     2.9651   .6095039     5.29   0.000     1.981832    4.436206
+totalwrvuq~e |   1.115022   .1828041     0.66   0.507     .8085964    1.537571
+residentpr~t |   .9141326    .121165    -0.68   0.498      .704994    1.185313
+_Iincision~1 |   .2074863   .1911201    -1.71   0.088     .0341137    1.261972
+_Iincision~2 |   .4868708   .4398327    -0.80   0.426     .0828799    2.860079
+_Iincision~3 |   .5795276   .5133539    -0.62   0.538     .1021098    3.289127
+     highasa |   2.490873   .3572584     6.36   0.000      1.88047    3.299415
+optimequar~e |   .9036833   .0787981    -1.16   0.245     .7617183    1.072107
+anesthesi~le |   1.045241   .0693538     0.67   0.505     .9177773    1.190406
+preophospi~s |   1.011048   .0048022     2.31   0.021     1.001679    1.020504
+numage10y~39 |   1.635674   .0829344     9.70   0.000     1.480941    1.806573
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     2690
+area under ROC curve   =   0.8570
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2690
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         6.52
+                  Prob > chi2 =         0.5897
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 6
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2690
+                                                  LR chi2(36)     =     634.56
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -1541.1251                       Pseudo R2       =     0.1707
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   1.016875   .0940393     0.18   0.856     .8482997    1.218949
+_Ibmiclass_1 |   1.444434   .2176159     2.44   0.015      1.07512    1.940609
+_Ibmiclass_2 |   .9454368   .1101112    -0.48   0.630     .7524827    1.187869
+_Ibmiclass_3 |   .7849599   .1090379    -1.74   0.081     .5978717    1.030593
+_Ibmiclass_4 |   1.332446   .1952775     1.96   0.050     .9997722    1.775816
+_Idiabetes_1 |   .9362718   .1499436    -0.41   0.681     .6840413    1.281509
+_Idiabetes_2 |   1.138792   .2065634     0.72   0.474     .7980798    1.624958
+  alcoholuse |   1.374953   .2876501     1.52   0.128     .9124523    2.071883
+chronicpul~y |   1.071698   .1013076     0.73   0.464     .8904477    1.289842
+decreasedf~n |   1.541199   .1692173     3.94   0.000     1.242797    1.911249
+acutepulmo~y |   1.447541   .2464986     2.17   0.030     1.036768    2.021064
+chroniccar~c |   1.172886   .1662676     1.12   0.261     .8883618    1.548537
+acutecardiac |   .8751077   .2035026    -0.57   0.566     .5547766      1.3804
+hypertension |   1.138151   .1160058     1.27   0.204     .9320551     1.38982
+         pvd |   .9811559   .2538391    -0.07   0.941     .5909081    1.629131
+       renal |   1.083385    .185863     0.47   0.641     .7740204    1.516397
+acutecogni~e |   1.164796   .2180187     0.81   0.415     .8071006    1.681017
+cerebrovas~r |   .9723021   .1543967    -0.18   0.860     .7122536    1.327296
+preopinfec~d |   1.309067   .2563025     1.38   0.169     .8918772    1.921405
+chronicste~s |   1.249395   .1532416     1.82   0.069     .9824212     1.58892
+_Ipreopalb~1 |   1.696487   .1816885     4.94   0.000     1.375275    2.092722
+_Ipreopalb~2 |   1.017847   .1241459     0.15   0.885     .8014236    1.292715
+bleedingdi~r |   .9816153   .1285781    -0.14   0.887     .7593564    1.268928
+_Ipreopsep~1 |   1.388464   .1632882     2.79   0.005     1.102632    1.748393
+_Ipreopsep~2 |   1.819105   .2161954     5.03   0.000     1.441103    2.296258
+_Ipreopsep~3 |   1.941015   .3188515     4.04   0.000       1.4067    2.678281
+totalwrvuq~e |   1.207885   .1336632     1.71   0.088     .9723726     1.50044
+residentpr~t |   1.043029   .0989483     0.44   0.657     .8660558    1.256165
+_Iincision~1 |   .8131671   .6543798    -0.26   0.797     .1679548    3.937015
+_Iincision~2 |   1.304836   1.045804     0.33   0.740     .2712266    6.277395
+_Iincision~3 |   1.956159   1.551228     0.85   0.397     .4134318    9.255594
+     highasa |   2.247641   .2378132     7.65   0.000      1.82669    2.765597
+optimequar~e |   1.280812   .0870401     3.64   0.000     1.121089     1.46329
+anesthesi~le |   1.161488   .0529507     3.28   0.001     1.062208    1.270047
+preophospi~s |   .9951685   .0063778    -0.76   0.450     .9827465    1.007748
+numage10y~39 |   1.099633   .0355454     2.94   0.003     1.032126    1.171555
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for majorcomplication
+
+number of observations =     2690
+area under ROC curve   =   0.7710
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2690
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        13.79
+                  Prob > chi2 =         0.0873
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 6 & majorcomp == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       1254
+                                                  LR chi2(36)     =     236.55
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -631.69206                       Pseudo R2       =     0.1577
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .9451219   .1392388    -0.38   0.702     .7080856    1.261508
+_Ibmiclass_1 |   1.388168   .3140387     1.45   0.147     .8910024    2.162745
+_Ibmiclass_2 |   1.019172   .1914121     0.10   0.919     .7053134    1.472695
+_Ibmiclass_3 |   .6159046   .1495493    -2.00   0.046     .3826759    .9912787
+_Ibmiclass_4 |   1.121852   .2507623     0.51   0.607     .7238869    1.738604
+_Idiabetes_1 |   .9411277   .2208895    -0.26   0.796     .5941079    1.490843
+_Idiabetes_2 |   .8408279   .2007787    -0.73   0.468     .5265642     1.34265
+  alcoholuse |   .8883564   .2883992    -0.36   0.715     .4701649    1.678512
+chronicpul~y |   1.005641   .1489675     0.04   0.970     .7522334    1.344414
+decreasedf~n |   1.910396    .310133     3.99   0.000     1.389759    2.626075
+acutepulmo~y |   1.106431   .2202676     0.51   0.611      .748976    1.634485
+chroniccar~c |   .9991606   .1925085    -0.00   0.997      .684911    1.457594
+acutecardiac |   1.181199   .3713467     0.53   0.596     .6378543    2.187383
+hypertension |   1.095225    .180122     0.55   0.580     .7934389    1.511795
+         pvd |   1.911976   .6091548     2.03   0.042     1.023976    3.570055
+       renal |   1.102794   .2327622     0.46   0.643     .7291797    1.667838
+acutecogni~e |    1.02554   .2114574     0.12   0.903     .6846083    1.536254
+cerebrovas~r |    1.14774   .2424908     0.65   0.514     .7585853    1.736531
+preopinfec~d |   1.141446   .2582663     0.58   0.559     .7325887    1.778485
+chronicste~s |   1.428278   .2504181     2.03   0.042     1.012914    2.013969
+_Ipreopalb~1 |   1.436199   .2798897     1.86   0.063     .9802361    2.104257
+_Ipreopalb~2 |   1.381025   .3291911     1.35   0.176     .8655719    2.203435
+bleedingdi~r |   1.151396   .2035086     0.80   0.425     .8142824    1.628074
+_Ipreopsep~1 |   1.197092   .2756041     0.78   0.435     .7623548    1.879741
+_Ipreopsep~2 |   1.553535   .3371305     2.03   0.042      1.01532    2.377054
+_Ipreopsep~3 |   2.324165   .5679575     3.45   0.001     1.439655     3.75211
+totalwrvuq~e |   1.150085    .233095     0.69   0.490     .7730569    1.710993
+residentpr~t |   .9396927   .1424892    -0.41   0.682     .6980957    1.264902
+_Iincision~1 |   .2013543   .2635004    -1.22   0.221     .0154897    2.617447
+_Iincision~2 |   .3362502   .4332931    -0.85   0.398      .026903    4.202654
+_Iincision~3 |   .3766955   .4774812    -0.77   0.441     .0314086     4.51786
+     highasa |   1.429498   .2332186     2.19   0.029     1.038275    1.968135
+optimequar~e |   .8661109   .0889178    -1.40   0.161     .7082497    1.059158
+anesthesi~le |    1.00999   .0794195     0.13   0.899     .8657326    1.178285
+preophospi~s |   1.016972   .0091625     1.87   0.062     .9991714    1.035089
+numage10y~39 |   1.540581    .088699     7.51   0.000     1.376185    1.724617
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     1254
+area under ROC curve   =   0.7631
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      1254
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         6.52
+                  Prob > chi2 =         0.5894
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 7
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2797
+                                                  LR chi2(36)     =     456.88
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -726.73659                       Pseudo R2       =     0.2392
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .9225167   .1366796    -0.54   0.586     .6900184    1.233354
+_Ibmiclass_1 |   1.243326     .25855     1.05   0.295     .8271365    1.868928
+_Ibmiclass_2 |   .9224486   .1634331    -0.46   0.649     .6518267    1.305426
+_Ibmiclass_3 |     .59729    .150934    -2.04   0.041      .363989    .9801267
+_Ibmiclass_4 |   .8197714   .2029641    -0.80   0.422     .5045996    1.331799
+_Idiabetes_1 |   .8414327   .1895994    -0.77   0.444     .5410268    1.308639
+_Idiabetes_2 |   .4551606   .1404882    -2.55   0.011     .2485626    .8334766
+  alcoholuse |   1.098492   .2631338     0.39   0.695     .6869094    1.756688
+chronicpul~y |   .8979479   .1356277    -0.71   0.476      .667858    1.207308
+decreasedf~n |   2.413652   .3864665     5.50   0.000      1.76353     3.30344
+acutepulmo~y |    1.26973    .239951     1.26   0.206     .8767044     1.83895
+chroniccar~c |   .9748089    .206902    -0.12   0.904     .6430623    1.477699
+acutecardiac |   .6198475   .2333416    -1.27   0.204     .2963808    1.296342
+hypertension |   1.100709   .1739504     0.61   0.544     .8075192    1.500348
+         pvd |   1.467049   .5312694     1.06   0.290      .721431    2.983282
+       renal |   1.822909   .3825001     2.86   0.004     1.208253     2.75025
+acutecogni~e |   1.054609   .2193146     0.26   0.798     .7015801     1.58528
+cerebrovas~r |   1.060965   .2210685     0.28   0.776     .7052448    1.596107
+preopinfec~d |   1.598534   .3651007     2.05   0.040     1.021668    2.501116
+chronicste~s |   1.004984    .249478     0.02   0.984     .6178123    1.634791
+_Ipreopalb~1 |   1.984634   .4006668     3.40   0.001     1.336091    2.947981
+_Ipreopalb~2 |   1.480911   .3703174     1.57   0.116     .9071454     2.41758
+bleedingdi~r |   1.339559   .2486013     1.58   0.115     .9310908    1.927221
+_Ipreopsep~1 |   1.378701   .2494665     1.77   0.076     .9670548    1.965573
+_Ipreopsep~2 |   1.477826   .3221595     1.79   0.073     .9639732     2.26559
+_Ipreopsep~3 |   1.907153   .4291116     2.87   0.004     1.227056    2.964196
+totalwrvuq~e |   1.150812   .1744311     0.93   0.354     .8550391    1.548898
+residentpr~t |   .8327382   .1226539    -1.24   0.214     .6239289    1.111429
+_Iincision~1 |   1.329986   .9138896     0.42   0.678     .3459003    5.113798
+_Iincision~2 |   1.433854   .9994378     0.52   0.605     .3657569    5.621046
+_Iincision~3 |   2.010083   1.371838     1.02   0.306     .5275789    7.658445
+     highasa |   2.640228   .4463362     5.74   0.000     1.895588    3.677383
+optimequar~e |   1.103261   .0886752     1.22   0.221     .9424586    1.291498
+anesthesi~le |   .9458201   .0664246    -0.79   0.428      .824193    1.085396
+preophospi~s |   .9997974   .0105726    -0.02   0.985     .9792887    1.020736
+numage10y~39 |    1.45563   .0785459     6.96   0.000     1.309544    1.618013
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     2797
+area under ROC curve   =   0.8493
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2797
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        16.04
+                  Prob > chi2 =         0.0418
+
+. xi: logistic majorcomp female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acutep
+> ulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfected
+>  chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentprese
+> nt i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage10
+>  if diagnosis == 7
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       2797
+                                                  LR chi2(36)     =     960.52
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -1371.2127                       Pseudo R2       =     0.2594
+
+------------------------------------------------------------------------------
+majorcompl~n | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   1.149802    .115765     1.39   0.166     .9438911    1.400633
+_Ibmiclass_1 |   1.360606   .2035207     2.06   0.040     1.014867    1.824131
+_Ibmiclass_2 |   1.241909   .1517127     1.77   0.076     .9774762    1.577877
+_Ibmiclass_3 |   .9849562   .1598731    -0.09   0.926     .7165628    1.353878
+_Ibmiclass_4 |   1.258873   .2172061     1.33   0.182     .8976675    1.765421
+_Idiabetes_1 |   1.245919   .2061328     1.33   0.184      .900869     1.72313
+_Idiabetes_2 |   1.031907   .2110974     0.15   0.878      .691051    1.540888
+  alcoholuse |   1.669773   .2525985     3.39   0.001     1.241338    2.246078
+chronicpul~y |    1.34021   .1391506     2.82   0.005     1.093439    1.642672
+decreasedf~n |   1.467846   .1732357     3.25   0.001     1.164719    1.849863
+acutepulmo~y |   2.645482   .4667893     5.51   0.000     1.872027      3.7385
+chroniccar~c |    1.18462   .1951429     1.03   0.304     .8577494    1.636055
+acutecardiac |    .824223   .2584458    -0.62   0.538     .4457994    1.523877
+hypertension |    1.13008   .1246628     1.11   0.268     .9103538    1.402839
+         pvd |   2.878122   1.001719     3.04   0.002     1.454963    5.693333
+       renal |   1.923568   .3994821     3.15   0.002     1.280359    2.889901
+acutecogni~e |    1.67437   .3726404     2.32   0.021      1.08246    2.589948
+cerebrovas~r |   .6624851    .117633    -2.32   0.020     .4677718    .9382491
+preopinfec~d |   1.057175   .2186427     0.27   0.788     .7048607    1.585589
+chronicste~s |   1.220362   .2249869     1.08   0.280     .8502768    1.751527
+_Ipreopalb~1 |   1.947065   .2255111     5.75   0.000     1.551648    2.443247
+_Ipreopalb~2 |   1.104185   .1574496     0.70   0.487     .8349604    1.460217
+bleedingdi~r |   1.146946   .1785127     0.88   0.378     .8453965    1.556057
+_Ipreopsep~1 |     1.4904   .1673451     3.55   0.000     1.195992     1.85728
+_Ipreopsep~2 |   2.118257    .299503     5.31   0.000     1.605559    2.794673
+_Ipreopsep~3 |   2.495603   .5092313     4.48   0.000     1.672964    3.722754
+totalwrvuq~e |   1.143227   .0963413     1.59   0.112     .9691711    1.348541
+residentpr~t |   .8696255    .089845    -1.35   0.176     .7102164    1.064814
+_Iincision~1 |   2.153774   1.031798     1.60   0.109     .8422079    5.507838
+_Iincision~2 |   2.212351   1.073078     1.64   0.102     .8550422    5.724275
+_Iincision~3 |   2.672221   1.274225     2.06   0.039     1.049505    6.803936
+     highasa |    2.16422   .2373296     7.04   0.000     1.745654    2.683149
+optimequar~e |   1.335034   .0709306     5.44   0.000     1.203006    1.481551
+anesthesi~le |    1.23523   .0592505     4.40   0.000     1.124393    1.356993
+preophospi~s |   1.001993   .0058719     0.34   0.734     .9905497    1.013567
+numage10y~39 |   1.233341   .0428472     6.04   0.000     1.152157    1.320245
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for majorcomplication
+
+number of observations =     2797
+area under ROC curve   =   0.8291
+
+. estat gof, group(10)
+
+Logistic model for majorcomplication, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      2797
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =        17.75
+                  Prob > chi2 =         0.0232
+
+. xi: logistic postopdeath female i.bmiclass i.diabetes alcohol chronicpulm decreasedfunction acut
+> epulm chroniccardiac acutecardiac hypertension pvd renal acutecognitive cerebrovascu preopinfect
+> ed chronicsteroid i.preopalbumincat bleedingdisorder i.preopsepsis totalwrvuquartile residentpre
+> sent i.incisionalwound highasa optimequartile anesthesiaonlytimequartile preophospitallos numage
+> 10 if diagnosis == 7 & majorcomp == 1
+i.bmiclass        _Ibmiclass_0-4      (naturally coded; _Ibmiclass_0 omitted)
+i.diabetes        _Idiabetes_0-2      (naturally coded; _Idiabetes_0 omitted)
+i.preopalbumi~g   _Ipreopalbu_0-2     (naturally coded; _Ipreopalbu_0 omitted)
+i.preopsepsis~s   _Ipreopseps_0-3     (naturally coded; _Ipreopseps_0 omitted)
+i.incisionalw~s   _Iincisiona_0-3     (naturally coded; _Iincisiona_0 omitted)
+
+Logistic regression                               Number of obs   =       1051
+                                                  LR chi2(36)     =     151.57
+                                                  Prob > chi2     =     0.0000
+Log likelihood = -516.60042                       Pseudo R2       =     0.1279
+
+------------------------------------------------------------------------------
+ postopdeath | Odds Ratio   Std. Err.      z    P>|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+   femalesex |   .8853405   .1475349    -0.73   0.465     .6386522    1.227315
+_Ibmiclass_1 |   .9980994   .2410136    -0.01   0.994     .6217732    1.602196
+_Ibmiclass_2 |   .8087386   .1618345    -1.06   0.289      .546357    1.197126
+_Ibmiclass_3 |    .457124   .1348053    -2.65   0.008     .2564577    .8148024
+_Ibmiclass_4 |   .7582212   .2054032    -1.02   0.307     .4458659      1.2894
+_Idiabetes_1 |   .7537391   .1862127    -1.14   0.252     .4644405    1.223241
+_Idiabetes_2 |   .4340258   .1454324    -2.49   0.013     .2250592    .8370168
+  alcoholuse |    .812269   .2113064    -0.80   0.424     .4878266    1.352491
+chronicpul~y |   .8427699   .1421371    -1.01   0.310     .6055497    1.172919
+decreasedf~n |   2.134862    .386564     4.19   0.000     1.497066    3.044379
+acutepulmo~y |   1.002081   .2050736     0.01   0.992     .6709748    1.496578
+chroniccar~c |   1.005846   .2382228     0.02   0.980     .6323163    1.600031
+acutecardiac |   .6164532   .2516444    -1.19   0.236     .2769673    1.372056
+hypertension |   1.081311   .1935899     0.44   0.662     .7613034    1.535831
+         pvd |   1.354573   .5062462     0.81   0.417     .6511513    2.817883
+       renal |   1.516942   .3440771     1.84   0.066     .9725166    2.366142
+acutecogni~e |   1.005481   .2239329     0.02   0.980     .6498313    1.555775
+cerebrovas~r |   1.130288   .2792028     0.50   0.620     .6965078    1.834223
+preopinfec~d |   1.666344   .4309139     1.97   0.048     1.003796    2.766203
+chronicste~s |   1.001731   .2863591     0.01   0.995     .5720352      1.7542
+_Ipreopalb~1 |   1.621674   .3752199     2.09   0.037      1.03042     2.55219
+_Ipreopalb~2 |    1.46593   .4351065     1.29   0.198     .8193433    2.622772
+bleedingdi~r |   1.269813   .2676141     1.13   0.257     .8401338    1.919249
+_Ipreopsep~1 |   1.044996   .2214736     0.21   0.835     .6897844    1.583128
+_Ipreopsep~2 |   1.055781    .260795     0.22   0.826     .6505991    1.713304
+_Ipreopsep~3 |   1.067165   .2699723     0.26   0.797     .6499706    1.752141
+totalwrvuq~e |   1.024566   .1749924     0.14   0.887     .7330902    1.431931
+residentpr~t |    .778609   .1300761    -1.50   0.134     .5611977    1.080247
+_Iincision~1 |   1.531073   1.327293     0.49   0.623     .2799539     8.37347
+_Iincision~2 |   1.701741   1.493367     0.61   0.545     .3047328    9.503153
+_Iincision~3 |   2.021624    1.74721     0.81   0.415     .3715696    10.99918
+     highasa |   1.964894   .3716759     3.57   0.000     1.356211     2.84676
+optimequar~e |   .9767693   .0906459    -0.25   0.800     .8143273    1.171615
+anesthesi~le |   .8575631   .0671588    -1.96   0.050     .7355387    .9998312
+preophospi~s |   .9936508   .0130586    -0.48   0.628     .9683832    1.019578
+numage10y~39 |   1.359389   .0842454     4.95   0.000     1.203905    1.534954
+------------------------------------------------------------------------------
+
+. lroc, nograph
+
+Logistic model for postopdeath
+
+number of observations =     1051
+area under ROC curve   =   0.7447
+
+. estat gof, group(10)
+
+Logistic model for postopdeath, goodness-of-fit test
+
+  (Table collapsed on quantiles of estimated probabilities)
+
+       number of observations =      1051
+             number of groups =        10
+      Hosmer-Lemeshow chi2(8) =         6.24
+                  Prob > chi2 =         0.6204
+
+. log close
+      name:  <unnamed>
+       log:  F:\EmergencySurgeryinElderly\NEWEGS\Logfortable1regressionsnonparsimonious.log
+  log type:  text
+ closed on:  11 Jun 2012, 16:23:33
+--------------------------------------------------------------------------------------------------
