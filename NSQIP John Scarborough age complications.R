@@ -61,6 +61,12 @@ CrossTable(bmiclass, postopdeath,  chisq=TRUE, missing.include=TRUE, format="SAS
 
 diabetes <- car::recode(diabetes, " '")
 
+levels(diagnosis)
+
+CrossTable(numage10yrcatstart39 & diagnosis=='appendicitis', postopdeath & diagnosis=='appendicitis', chisq=TRUE, missing.include=TRUE, format="SAS", prop.r=FALSE)
+
+names(nsqip.data)
+sort(names(nsqip.data))
 
 ###########################################################################################
 #TABLE 1: DEMOGRAPHICS
@@ -159,6 +165,10 @@ plot(logisticmodelfigure2) #generates 4 graphs/page
 
 model3  <- update(logisticmodelfigure2, subset=(cerebrovascular==1))
 summary(model3)
+
+model4  <- update(logisticmodelfigure2, subset=(age==65:100))
+summary(model4)
+
 
 levels(bmiclass)
 bmi_class_factor <- as.factor(bmiclass)
